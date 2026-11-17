@@ -24,12 +24,14 @@ Los Web Components (Custom Elements, Shadow DOM y HTML Templates) cuentan con so
 ## Parte 2. Investigación: frameworks, librerías y Node.js
 
 1. **Explica con un ejemplo la diferencia entre estándar del navegador, librería, framework y entorno de ejecución.**
-- **Estándar del navegador (Nativo):** Es la especificación oficial implementada directamente por los navegadores sin instalar nada (ej. Web Components).
-- **Librería:** Es un conjunto de funciones y herramientas reutilizables que tú controlas y llamas cuando lo necesitas (ej. React para construir interfaces de usuario).
-- **Framework:** Es una estructura rígida o esqueleto arquitectónico integral que dicta cómo debes organizar y desarrollar toda tu aplicación (ej. Angular).
-- **Entorno de ejecución:** Es el software que permite ejecutar código JavaScript fuera del navegador (ej. Node.js).
 
-2. **Completa la tabla con una o duas frases por celda:**
+Usamos como ejemplo la tarjeta de plato de nuestro restaurante, construida de cuatro formas distintas:
+
+- **Estándar del navegador:** es una tecnología que ya viene incluida en el navegador y no se instala. Nuestro componente `<menu-plato>` usa Custom Elements, Shadow DOM y `<template>`, que funcionan solo con abrir `index.html`, igual que `fetch` o `document.querySelector`.
+- **Librería:** es un conjunto de herramientas que **nuestro código llama** cuando las necesita, y nosotros decidimos cómo organizar el proyecto. Si hiciéramos la tarjeta con React, escribiríamos una función `MenuPlato` y nosotros le pediríamos a React que la dibuje donde queremos; el resto de la página lo manejamos como queramos.
+- **Framework:** es una estructura que **llama a nuestro código** y nos dice dónde va cada cosa. Si usáramos Angular, tendríamos que crear el proyecto con su herramienta, poner la tarjeta en archivos y carpetas con el formato que Angular exige y marcarla con `@Component`; Angular decide cuándo crearla y mostrarla. Esa diferencia de quién controla a quién es lo que separa un framework de una librería.
+- **Entorno de ejecución:** es el programa que permite ejecutar JavaScript **fuera del navegador**. No sirve para dibujar la tarjeta, sino para cosas como un servidor que envía la lista de platos del menú o para ejecutar `npm install`. Node.js es un entorno de ejecución, no un framework ni una librería.
+
 
 2. **Completa la tabla con una o dos frases por celda:**
 
