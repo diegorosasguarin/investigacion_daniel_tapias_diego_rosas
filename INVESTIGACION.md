@@ -24,20 +24,24 @@ Los Web Components (Custom Elements, Shadow DOM y HTML Templates) cuentan con so
 ## Parte 2. Investigación: frameworks, librerías y Node.js
 
 1. **Explica con un ejemplo la diferencia entre estándar del navegador, librería, framework y entorno de ejecución.**
-- **Estándar del navegador (Nativo):** Es la especificación oficial implementada directamente por los navegadores sin instalar nada (ej. Web Components).
-- **Librería:** Es un conjunto de funciones y herramientas reutilizables que tú controlas y llamas cuando lo necesitas (ej. React para construir interfaces de usuario).
-- **Framework:** Es una estructura rígida o esqueleto arquitectónico integral que dicta cómo debes organizar y desarrollar toda tu aplicación (ej. Angular).
-- **Entorno de ejecución:** Es el software que permite ejecutar código JavaScript fuera del navegador (ej. Node.js).
 
-2. **Completa la tabla con una o duas frases por celda:**
+Usamos como ejemplo la tarjeta de plato de nuestro restaurante, construida de cuatro formas distintas:
 
-| Criterio | Web Components nativos | React / Vue | Angular |
-| :--- | :--- | :--- | :--- |
-| **Tipo (estándar, librería o framework)** | Estándar web nativo del navegador. | React es librería UI; Vue es framework progresivo. | Framework completo y estructurado. |
-| **Cómo se crea un componente** | Clase que extiende `HTMLElement` con `customElements.define()`. | Mediante funciones que retornan JSX (React) o archivos SFC (Vue). | Usando clases decoradas con `@Component` y TypeScript. |
-| **Necesita instalar herramientas (npm)** | No, funciona de forma nativa en el navegador. | Sí, requiere Node.js y gestores de paquetes (npm/vite). | Sí, requiere Node.js y Angular CLI. |
-| **Ventajas principales** | Estándar nativo, sin dependencias, alta velocidad y ligereza. | Gran ecosistema, reactividad avanzada y comunidad masiva. | Arquitectura robusta, TypeScript nativo y herramientas integradas. |
-| **Desventajas principales** | Menos abstracción para estados complejos y boilerplate manual. | Requiere compiladores, dependencias externas y actualizaciones frecuentes. | Curva de aprendizaje muy pronunciada y alta complejidad inicial. |
+- **Estándar del navegador:** es una tecnología que ya viene incluida en el navegador y no se instala. Nuestro componente `<menu-plato>` usa Custom Elements, Shadow DOM y `<template>`, que funcionan solo con abrir `index.html`, igual que `fetch` o `document.querySelector`.
+- **Librería:** es un conjunto de herramientas que **nuestro código llama** cuando las necesita, y nosotros decidimos cómo organizar el proyecto. Si hiciéramos la tarjeta con React, escribiríamos una función `MenuPlato` y nosotros le pediríamos a React que la dibuje donde queremos; el resto de la página lo manejamos como queramos.
+- **Framework:** es una estructura que **llama a nuestro código** y nos dice dónde va cada cosa. Si usáramos Angular, tendríamos que crear el proyecto con su herramienta, poner la tarjeta en archivos y carpetas con el formato que Angular exige y marcarla con `@Component`; Angular decide cuándo crearla y mostrarla. Esa diferencia de quién controla a quién es lo que separa un framework de una librería.
+- **Entorno de ejecución:** es el programa que permite ejecutar JavaScript **fuera del navegador**. No sirve para dibujar la tarjeta, sino para cosas como un servidor que envía la lista de platos del menú o para ejecutar `npm install`. Node.js es un entorno de ejecución, no un framework ni una librería.
+
+
+2. **Completa la tabla con una o dos frases por celda:**
+
+| Criterio | Web Components nativos | React | Vue | Angular |
+| :--- | :--- | :--- | :--- | :--- |
+| **Tipo (estándar, librería o framework)** | Estándar del navegador: viene incluido en Chrome, Firefox, Safari y Edge. | Librería para construir interfaces de usuario; solo se encarga de la vista. | Framework progresivo: se puede usar solo en una parte de la página o para una aplicación completa. | Framework completo que define cómo se organiza toda la aplicación. |
+| **Cómo se crea un componente** | Con una clase que extiende `HTMLElement` y se registra con `customElements.define()`. | Con una función de JavaScript que devuelve JSX, una sintaxis parecida a HTML dentro de JS. | Con un archivo `.vue` que junta en un solo lugar `<template>`, `<script>` y `<style>`. | Con una clase en TypeScript marcada con el decorador `@Component`, que indica su plantilla y estilos. |
+| **Necesita instalar herramientas (npm)** | No. Basta con un archivo HTML y uno JS abiertos en el navegador. | Para proyectos reales sí (npm y una herramienta como Vite), aunque se puede probar con un `<script>` desde un CDN. | Para proyectos reales sí (npm y Vite), pero también funciona con un `<script>` desde un CDN sin instalar nada. | Sí, siempre: necesita Node.js, npm y Angular CLI para crear y compilar el proyecto. |
+| **Ventajas principales** | No depende de nadie, funciona en cualquier página y con cualquier otra tecnología, y el Shadow DOM aísla los estilos. | Comunidad enorme, muchas librerías complementarias y actualiza la vista automáticamente cuando cambian los datos. | Fácil de aprender, documentación muy clara y se puede adoptar de a poco en un proyecto existente. | Trae todo incluido (rutas, formularios, peticiones HTTP, pruebas) y obliga a todos los equipos a trabajar igual. |
+| **Desventajas principales** | Hay que escribir más código a mano y no trae herramientas para manejar estados o datos complejos. | Como solo maneja la vista, hay que elegir e instalar otras librerías para rutas, formularios, etc. | Ecosistema y oferta laboral más pequeños que los de React. | Curva de aprendizaje alta (TypeScript, decoradores, módulos) y es demasiado pesado para proyectos pequeños. |
 
 3. **¿Qué es Node.js, para qué se usa y qué relación tiene npm con React, Vue y Angular? Si una tienda en línea usa React y Node.js, ¿qué hace cada uno?**
 Node.js es un entorno de ejecución de JavaScript basado en el motor V8 de Google que permite ejecutar código JS en el servidor. `npm` (Node Package Manager) es el gestor de paquetes que permite instalar, actualizar y gestionar las librerías y dependencias necesarias para trabajar con React, Vue o Angular. En una tienda en línea, **React** se encarga de renderizar la interfaz de usuario interactiva en el navegador del cliente (frontend), mientras que **Node.js** opera en el servidor (backend) gestionando las peticiones, lógica de negocio, conexiones a bases de datos y APIs.
@@ -54,12 +58,27 @@ Node.js es un entorno de ejecución de JavaScript basado en el motor V8 de Googl
 
 ## Fuentes de la Investigación
 
-1. **MDN Web Documents** - *Web Components overview, Custom Elements, Shadow DOM y Templates*. 
-   - Enlace: https://developer.mozilla.org/es/docs/Web/Web_Components
+1. **MDN Web Docs** - *Web Components*.
+   - Enlace: https://developer.mozilla.org/es/docs/Web/API/Web_components
    - Fecha de consulta: 17 de noviembre de 2026.
-2. **Web.dev by Google** - *Reusable web components with custom elements and templates*.
-   - Enlace: https://web.dev/custom-elements-v1/
+2. **web.dev** - *Custom Elements v1: Reusable Web Components*.
+   - Enlace: https://web.dev/articles/custom-elements-v1
    - Fecha de consulta: 17 de noviembre de 2026.
-3. **Documentación Oficial de Node.js y npm** - *About Node.js ecosystem*.
-   - Enlace: https://nodejs.org/en/about
+3. **Can I use** - *Custom Elements (V1), Shadow DOM (V1) y HTML templates*.
+   - Enlace: https://caniuse.com/custom-elementsv1
+   - Fecha de consulta: 17 de noviembre de 2026.
+4. **Node.js (Explicacion de terceros)** - *Que es NodeJS*.
+   - Enlace: https://lenguajejs.com/nodejs/introduccion/que-es/
+   - Fecha de consulta: 17 de noviembre de 2026.
+5. **npm Docs (Explicación de terceros)** - *Que es NPM?*.
+   - Enlace: https://lenguajejs.com/npm/introduccion/que-es/
+   - Fecha de consulta: 17 de noviembre de 2026.
+6. **React (Explicación de terceros)** - *Que es React?*.
+   - Enlace: https://lenguajejs.com/react/introduccion/que-es-react/
+   - Fecha de consulta: 17 de noviembre de 2026.
+7. **Vue.js (documentación oficial)** - *Introduction*.
+   - Enlace: https://vuejs.org/guide/introduction
+   - Fecha de consulta: 17 de noviembre de 2026.
+8. **Angular (documentación oficial)** - *What is Angular?*
+   - Enlace: https://angular.dev/overview
    - Fecha de consulta: 17 de noviembre de 2026.
