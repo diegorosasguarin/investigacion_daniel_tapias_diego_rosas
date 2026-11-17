@@ -56,12 +56,29 @@ Node.js es un entorno de ejecución de JavaScript basado en el motor V8 de Googl
 
 ## Fuentes de la Investigación
 
-1. **MDN Web Documents** - *Web Components overview, Custom Elements, Shadow DOM y Templates*. 
-   - Enlace: https://developer.mozilla.org/es/docs/Web/Web_Components
+## Fuentes de la Investigación
+
+1. **MDN Web Docs** - *Web Components*.
+   - Enlace: https://developer.mozilla.org/es/docs/Web/API/Web_components
    - Fecha de consulta: 17 de noviembre de 2026.
-2. **Web.dev by Google** - *Reusable web components with custom elements and templates*.
-   - Enlace: https://web.dev/custom-elements-v1/
+2. **web.dev** - *Custom Elements v1: Reusable Web Components*.
+   - Enlace: https://web.dev/articles/custom-elements-v1
    - Fecha de consulta: 17 de noviembre de 2026.
-3. **Documentación Oficial de Node.js y npm** - *About Node.js ecosystem*.
-   - Enlace: https://nodejs.org/en/about
+3. **Can I use** - *Custom Elements (V1), Shadow DOM (V1) y HTML templates*.
+   - Enlace: https://caniuse.com/custom-elementsv1
+   - Fecha de consulta: 17 de noviembre de 2026.
+4. **Node.js (Explicacion de terceros)** - *Que es NodeJS*.
+   - Enlace: https://lenguajejs.com/nodejs/introduccion/que-es/
+   - Fecha de consulta: 17 de noviembre de 2026.
+5. **npm Docs (Explicación de terceros)** - *Que es NPM?*.
+   - Enlace: https://lenguajejs.com/npm/introduccion/que-es/
+   - Fecha de consulta: 17 de noviembre de 2026.
+6. **React (Explicación de terceros)** - *Que es React?*.
+   - Enlace: https://lenguajejs.com/react/introduccion/que-es-react/
+   - Fecha de consulta: 17 de noviembre de 2026.
+7. **Vue.js (documentación oficial)** - *Introduction*.
+   - Enlace: https://vuejs.org/guide/introduction
+   - Fecha de consulta: 17 de noviembre de 2026.
+8. **Angular (documentación oficial)** - *What is Angular?*
+   - Enlace: https://angular.dev/overview
    - Fecha de consulta: 17 de noviembre de 2026.
