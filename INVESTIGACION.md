@@ -31,13 +31,15 @@ Los Web Components (Custom Elements, Shadow DOM y HTML Templates) cuentan con so
 
 2. **Completa la tabla con una o duas frases por celda:**
 
-| Criterio | Web Components nativos | React / Vue | Angular |
-| :--- | :--- | :--- | :--- |
-| **Tipo (estándar, librería o framework)** | Estándar web nativo del navegador. | React es librería UI; Vue es framework progresivo. | Framework completo y estructurado. |
-| **Cómo se crea un componente** | Clase que extiende `HTMLElement` con `customElements.define()`. | Mediante funciones que retornan JSX (React) o archivos SFC (Vue). | Usando clases decoradas con `@Component` y TypeScript. |
-| **Necesita instalar herramientas (npm)** | No, funciona de forma nativa en el navegador. | Sí, requiere Node.js y gestores de paquetes (npm/vite). | Sí, requiere Node.js y Angular CLI. |
-| **Ventajas principales** | Estándar nativo, sin dependencias, alta velocidad y ligereza. | Gran ecosistema, reactividad avanzada y comunidad masiva. | Arquitectura robusta, TypeScript nativo y herramientas integradas. |
-| **Desventajas principales** | Menos abstracción para estados complejos y boilerplate manual. | Requiere compiladores, dependencias externas y actualizaciones frecuentes. | Curva de aprendizaje muy pronunciada y alta complejidad inicial. |
+2. **Completa la tabla con una o dos frases por celda:**
+
+| Criterio | Web Components nativos | React | Vue | Angular |
+| :--- | :--- | :--- | :--- | :--- |
+| **Tipo (estándar, librería o framework)** | Estándar del navegador: viene incluido en Chrome, Firefox, Safari y Edge. | Librería para construir interfaces de usuario; solo se encarga de la vista. | Framework progresivo: se puede usar solo en una parte de la página o para una aplicación completa. | Framework completo que define cómo se organiza toda la aplicación. |
+| **Cómo se crea un componente** | Con una clase que extiende `HTMLElement` y se registra con `customElements.define()`. | Con una función de JavaScript que devuelve JSX, una sintaxis parecida a HTML dentro de JS. | Con un archivo `.vue` que junta en un solo lugar `<template>`, `<script>` y `<style>`. | Con una clase en TypeScript marcada con el decorador `@Component`, que indica su plantilla y estilos. |
+| **Necesita instalar herramientas (npm)** | No. Basta con un archivo HTML y uno JS abiertos en el navegador. | Para proyectos reales sí (npm y una herramienta como Vite), aunque se puede probar con un `<script>` desde un CDN. | Para proyectos reales sí (npm y Vite), pero también funciona con un `<script>` desde un CDN sin instalar nada. | Sí, siempre: necesita Node.js, npm y Angular CLI para crear y compilar el proyecto. |
+| **Ventajas principales** | No depende de nadie, funciona en cualquier página y con cualquier otra tecnología, y el Shadow DOM aísla los estilos. | Comunidad enorme, muchas librerías complementarias y actualiza la vista automáticamente cuando cambian los datos. | Fácil de aprender, documentación muy clara y se puede adoptar de a poco en un proyecto existente. | Trae todo incluido (rutas, formularios, peticiones HTTP, pruebas) y obliga a todos los equipos a trabajar igual. |
+| **Desventajas principales** | Hay que escribir más código a mano y no trae herramientas para manejar estados o datos complejos. | Como solo maneja la vista, hay que elegir e instalar otras librerías para rutas, formularios, etc. | Ecosistema y oferta laboral más pequeños que los de React. | Curva de aprendizaje alta (TypeScript, decoradores, módulos) y es demasiado pesado para proyectos pequeños. |
 
 3. **¿Qué es Node.js, para qué se usa y qué relación tiene npm con React, Vue y Angular? Si una tienda en línea usa React y Node.js, ¿qué hace cada uno?**
 Node.js es un entorno de ejecución de JavaScript basado en el motor V8 de Google que permite ejecutar código JS en el servidor. `npm` (Node Package Manager) es el gestor de paquetes que permite instalar, actualizar y gestionar las librerías y dependencias necesarias para trabajar con React, Vue o Angular. En una tienda en línea, **React** se encarga de renderizar la interfaz de usuario interactiva en el navegador del cliente (frontend), mientras que **Node.js** opera en el servidor (backend) gestionando las peticiones, lógica de negocio, conexiones a bases de datos y APIs.
