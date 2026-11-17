@@ -1,0 +1,65 @@
+# Investigación: Web Components, HTML Templates y Frameworks
+
+## Parte 1. Investigación: Web Components
+
+1. **¿Qué problema resuelven los Web Components y qué aporta cada tecnología: Custom Elements, Shadow DOM y HTML Templates?**
+Resuelven el problema de la reutilización de código y la modularidad nativa en el desarrollo web, evitando conflictos de estilos y lógica entre componentes. Los **Custom Elements** permiten definir etiquetas HTML personalizadas y su comportamiento en JavaScript. El **Shadow DOM** aísla el DOM interno y los estilos CSS del componente para que no interfieran con el documento principal (encapsulamiento). Los **HTML Templates** proveen la estructura en crudo de la plantilla que se clonará y reutilizará múltiples veces sin renderizarse de inmediato.
+
+2. **¿En qué se diferencia un `<template>` de un `<div>` oculto con `display: none`?**
+Un `<div>` oculto con `display: none` se encuentra en el DOM principal, por lo que el navegador descarga sus recursos (como imágenes o scripts), los procesa y `document.querySelector` puede encontrarlo y manipularlo inmediatamente. En cambio, un `<template>` no se renderiza en el DOM, sus contenidos están inactivos (no se ejecutan scripts ni se cargan recursos internos automáticamente) y `document.querySelector` dentro de él no devuelve elementos a menos que se clone explícitamente su contenido (`content`).
+
+3. **¿Qué cambia entre el Shadow DOM en modo "open" y en modo "closed"?**
+En el modo `"open"`, el Shadow DOM es accesible desde JavaScript externo mediante la propiedad `element.shadowRoot`, permitiendo que scripts de la página externa consulten o manipulen su estructura interna. En el modo `"closed"`, `shadowRoot` devuelve `null` desde el exterior, bloqueando el acceso directo al árbol interno y ofreciendo un encapsulamiento más estricto (aunque la seguridad real en JavaScript es limitada).
+
+4. **¿Qué es un `<slot>` y para qué sirve en un componente reutilizable?**
+Un `<slot>` (ranura) es un marcador de posición dentro del Shadow DOM de un componente que permite inyectar contenido HTML definido por el usuario o consumidor desde el exterior. Sirve para crear componentes flexibles y adaptables donde la estructura base es fija pero permite personalizar textos, iconos o notas adicionales en zonas específicas.
+
+5. **¿Qué navegadores soportan hoy los Web Components? Indica la fuente y la fecha de consulta.**
+Los Web Components (Custom Elements, Shadow DOM y HTML Templates) cuentan con soporte nativo completo en todos los navegadores modernos (Chrome, Edge, Safari, Firefox, Opera tanto en escritorio como en dispositivos móviles). 
+- *Fuente:* MDN Web Directions / Can I use (Custom Elements v1 & Shadow DOM v1).
+- *Fecha de consulta:* 17 de noviembre de 2026.
+
+---
+
+## Parte 2. Investigación: frameworks, librerías y Node.js
+
+1. **Explica con un ejemplo la diferencia entre estándar del navegador, librería, framework y entorno de ejecución.**
+- **Estándar del navegador (Nativo):** Es la especificación oficial implementada directamente por los navegadores sin instalar nada (ej. Web Components).
+- **Librería:** Es un conjunto de funciones y herramientas reutilizables que tú controlas y llamas cuando lo necesitas (ej. React para construir interfaces de usuario).
+- **Framework:** Es una estructura rígida o esqueleto arquitectónico integral que dicta cómo debes organizar y desarrollar toda tu aplicación (ej. Angular).
+- **Entorno de ejecución:** Es el software que permite ejecutar código JavaScript fuera del navegador (ej. Node.js).
+
+2. **Completa la tabla con una o duas frases por celda:**
+
+| Criterio | Web Components nativos | React / Vue | Angular |
+| :--- | :--- | :--- | :--- |
+| **Tipo (estándar, librería o framework)** | Estándar web nativo del navegador. | React es librería UI; Vue es framework progresivo. | Framework completo y estructurado. |
+| **Cómo se crea un componente** | Clase que extiende `HTMLElement` con `customElements.define()`. | Mediante funciones que retornan JSX (React) o archivos SFC (Vue). | Usando clases decoradas con `@Component` y TypeScript. |
+| **Necesita instalar herramientas (npm)** | No, funciona de forma nativa en el navegador. | Sí, requiere Node.js y gestores de paquetes (npm/vite). | Sí, requiere Node.js y Angular CLI. |
+| **Ventajas principales** | Estándar nativo, sin dependencias, alta velocidad y ligereza. | Gran ecosistema, reactividad avanzada y comunidad masiva. | Arquitectura robusta, TypeScript nativo y herramientas integradas. |
+| **Desventajas principales** | Menos abstracción para estados complejos y boilerplate manual. | Requiere compiladores, dependencias externas y actualizaciones frecuentes. | Curva de aprendizaje muy pronunciada y alta complejidad inicial. |
+
+3. **¿Qué es Node.js, para qué se usa y qué relación tiene npm con React, Vue y Angular? Si una tienda en línea usa React y Node.js, ¿qué hace cada uno?**
+Node.js es un entorno de ejecución de JavaScript basado en el motor V8 de Google que permite ejecutar código JS en el servidor. `npm` (Node Package Manager) es el gestor de paquetes que permite instalar, actualizar y gestionar las librerías y dependencias necesarias para trabajar con React, Vue o Angular. En una tienda en línea, **React** se encarga de renderizar la interfaz de usuario interactiva en el navegador del cliente (frontend), mientras que **Node.js** opera en el servidor (backend) gestionando las peticiones, lógica de negocio, conexiones a bases de datos y APIs.
+
+4. **Elige la herramienta que usarías en cada caso y justifica en 3 a 5 líneas:**
+- **a. Un botón de chat que varias empresas pegan en sus propias páginas:**
+  *Herramienta:* **Web Components nativos**.
+  *Justificación:* Al ser un widget independiente que se integra en webs de terceros construidas con cualquier tecnología (WordPress, React, HTML plano), los Web Components evitan conflictos de estilos gracias al Shadow DOM y no exigen instalar frameworks pesados.
+- **b. Una aplicación web grande para un banco, con muchos equipos de desarrollo:**
+  *Herramienta:* **Angular**.
+  *Justificación:* Su arquitectura opinionada, uso estricto de TypeScript, inyección de dependencias y modularidad garantizan que múltiples equipos sigan los mismos patrones estandarizados, facilitando el mantenimiento y escalabilidad a gran escala.
+
+---
+
+## Fuentes de la Investigación
+
+1. **MDN Web Documents** - *Web Components overview, Custom Elements, Shadow DOM y Templates*. 
+   - Enlace: https://developer.mozilla.org/es/docs/Web/Web_Components
+   - Fecha de consulta: 17 de noviembre de 2026.
+2. **Web.dev by Google** - *Reusable web components with custom elements and templates*.
+   - Enlace: https://web.dev/custom-elements-v1/
+   - Fecha de consulta: 17 de noviembre de 2026.
+3. **Documentación Oficial de Node.js y npm** - *About Node.js ecosystem*.
+   - Enlace: https://nodejs.org/en/about
+   - Fecha de consulta: 17 de noviembre de 2026.

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú del Restaurante - Web Components</title>
+    <!-- R2 y Regla: script en el head con defer -->
+    <script src="js/main.js" defer></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        .catalogo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>El Rincón Gourmet - Menú del Día</h1>
+
+    <div class="catalogo">
+        <!-- R5: Instancia 1 con atributos y slot -->
+        <menu-plato 
+            nombre="Bandeja Paisa Tradicional" 
+            precio="28000" 
+            disponibilidad="Disponible">
+            <p><strong>Ingredientes:</strong> Frijoles, arroz, carne molida, chicharrón, chorizo, huevo, aguacate y arepa.</p>
+        </menu-plato>
+
+        <!-- R5: Instancia 2 con atributos y slot -->
+        <menu-plato 
+            nombre="Ceviche de Camarón" 
+            precio="32000" 
+            disponibilidad="Agotado">
+            <p><strong>Nota:</strong> Plato fresco preparado al momento con camarones tigre y leche de tigre artesanal.</p>
+        </menu-plato>
+
+        <!-- R5: Instancia 3 con atributos y slot -->
+        <menu-plato 
+            nombre="Pasta Carbonara Italiana" 
+            precio="25000" 
+            disponibilidad="Disponible">
+            <p><strong>Acompañamiento:</strong> Incluye pan de ajo al horno y copa de vino de la casa.</p>
+        </menu-plato>
+    </div>
+
+    <!-- R1: Template propio -->
+    <template id="template-plato">
+        <style>
+            .tarjeta {
+                background: #ffffff;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                padding: 20px;
+                border-left: 5px solid #3498db;
+                transition: transform 0.2s ease;
+            }
+            .tarjeta:hover {
+                transform: translateY(-4px);
+            }
+            .nombre {
+                font-size: 1.25rem;
+                color: #2c3e50;
+                margin: 0 0 10px 0;
+            }
+            .precio {
+                font-size: 1.1rem;
+                font-weight: bold;
+                color: #e74c3c;
+                margin-bottom: 8px;
+            }
+            .badge {
+                display: inline-block;
+                padding: 4px 10px;
+                font-size: 0.85rem;
+                border-radius: 20px;
+                font-weight: 600;
+                margin-bottom: 12px;
+            }
+            .badge.disponible {
+                background-color: #e8f8f5;
+                color: #27ae60;
+            }
+            .badge.agotado {
+                background-color: #ffd2d2;
+                color: #c0392b;
+            }
+            .slot-container {
+                font-size: 0.95rem;
+                color: #555;
+                border-top: 1px solid #eee;
+                padding-top: 10px;
+                margin-top: 10px;
+            }
+        </style>
+        <div class="tarjeta">
+            <h3 class="nombre"></h3>
+            <div class="precio"></div>
+            <!-- Marcadores vacíos (R1) -->
+            <span class="badge"></span>
+            <div class="slot-container">
+                <!-- R4: Slot para nota o descripción libre -->
+                <slot></slot>
+            </div>
+        </div>
+    </template>
+
+</body>
+</html>
