@@ -58,8 +58,6 @@ Node.js es un entorno de ejecución de JavaScript basado en el motor V8 de Googl
 
 ## Fuentes de la Investigación
 
-## Fuentes de la Investigación
-
 1. **MDN Web Docs** - *Web Components*.
    - Enlace: https://developer.mozilla.org/es/docs/Web/API/Web_components
    - Fecha de consulta: 17 de noviembre de 2026.
